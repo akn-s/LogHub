@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  loghub.web:
+    image: loghub.web
+    build:
+      context: ./LogHub.Web
+      dockerfile: Dockerfile
