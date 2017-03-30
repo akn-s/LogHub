@@ -19,5 +19,9 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogHub.Domain.Contract\LogHub.Domain.Contract.csproj" />
+    <ProjectReference Include="..\LogHub.Domain\LogHub.Domain.csproj" />
+  </ItemGroup>
 
 </Project>
