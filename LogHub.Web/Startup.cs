@@ -32,7 +32,8 @@ namespace LogHub.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MysqlDataContext>(options => LogHubDbContextOptionFactory.SetUseMySql(options));
+            services.AddDbContext<MysqlDataContext>
+                (options => LogHubDbContextOptionFactory.SetUseMySql(options, Configuration.GetConnectionString("LogHubDatabase")));
 
             services.AddTransient<ILoggingService, LoggingService>();
             services.AddTransient<ISerilogEventRepository, SerilogEventRepotitory>();

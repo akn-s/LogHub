@@ -7,7 +7,6 @@ namespace LogHub.Infrastructure.Mysql
     public class MysqlDataContext : DbContext
     {
         public DbSet<SerilogEvent> SerilogEvents { get; set; }
-        public MysqlDataContext() : base(LogHubDbContextOptionFactory.UseMySql()) { }
         public MysqlDataContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -17,15 +16,9 @@ namespace LogHub.Infrastructure.Mysql
 
     public static class LogHubDbContextOptionFactory
     {
-        public static DbContextOptions UseMySql()
+        public static void SetUseMySql(DbContextOptionsBuilder op, string connectionString)
         {
-            var optionsBuilder = new DbContextOptionsBuilder();
-            optionsBuilder.UseMySql(@"constr");
-            return optionsBuilder.Options;
-        }
-        public static void SetUseMySql(DbContextOptionsBuilder op)
-        {
-            op.UseMySql(@"constr");
+            op.UseMySql(connectionString);
         }
     }
 }
