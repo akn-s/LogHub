@@ -6,3 +6,21 @@ services:
     build:
       context: ./LogHub.Web
       dockerfile: Dockerfile
+    depends_on:
+      - loghub.mysql
+    links:
+      - loghub.mysql
+  loghub.mysql:
+    restart: always
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./mysql-data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: loghub_usr
+      MYSQL_PASSWORD: loghub_passwd
+      MYSQL_DATABASE: loghub
+      TZ: "Asia/Tokyo"
+    container_name: loghub.mysql 

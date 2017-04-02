@@ -19,4 +19,8 @@
     </None>
     <None Include="docker-compose.yml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="新しいフォルダー1\" />
+    <Folder Include="新しいフォルダー\" />
+  </ItemGroup>
 </Project>

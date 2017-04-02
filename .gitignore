@@ -6,6 +6,8 @@
 */appsettings.Development.json
 */appsettings.Staging.json
 */appsettings.Production.json
+mysql-data/*
+!.gitkeep
 
 # User-specific files
 *.suo
