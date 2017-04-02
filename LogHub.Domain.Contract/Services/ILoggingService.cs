@@ -12,7 +12,6 @@ namespace LogHub.Domain.Contract.Services
         /// ログを出力を実行します。
         /// </summary>
         /// <param name="payload"></param>
-        void Log(SerilogPayload payload);
         void Log(JObject payload);
     }
 }

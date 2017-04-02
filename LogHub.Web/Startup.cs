@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using LogHub.Domain.Contract.Services;
 using LogHub.Domain.Services;
+using LogHub.Infrastructure.Mysql;
+using LogHub.Infrastructure.Mysql.Repositories;
+using LogHub.Infrastructure.Contract.Repositories;
 
 namespace LogHub.Web
 {
@@ -29,7 +32,13 @@ namespace LogHub.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MysqlDataContext>(options => LogHubDbContextOptionFactory.SetUseMySql(options));
+
             services.AddTransient<ILoggingService, LoggingService>();
+            services.AddTransient<ISerilogEventRepository, SerilogEventRepotitory>();
+
+            // Enable Cors
+            services.AddCors();
 
             // Add framework services.
             services.AddMvc();

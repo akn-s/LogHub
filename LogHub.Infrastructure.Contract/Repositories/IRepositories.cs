@@ -5,7 +5,5 @@ using System.Text;
 
 namespace LogHub.Infrastructure.Contract.Repositories
 {
-    //public interface IScheduleRepository : IRepositoryBase<Event> { }
-    //public interface IUserRepository : IRepositoryBase<User> { }
-    //public interface IAttendeeRepository : IRepositoryBase<Attendee> { }
+    public interface ISerilogEventRepository : IRepositoryBase<SerilogEvent> { }
 }

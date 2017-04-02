@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LogHub.Domain.Contract\LogHub.Domain.Contract.csproj" />
+    <ProjectReference Include="..\LogHub.Infrastructure.Contract\LogHub.Infrastructure.Contract.csproj" />
   </ItemGroup>
 
 </Project>
